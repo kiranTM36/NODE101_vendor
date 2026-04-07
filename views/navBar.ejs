@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamro Shopping</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 15vh;
+    z-index: 3;
+
+}
+.upperHeader{
+    height: 10vh;
+    background-color: #131921;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vh;
+}
+
+h1{
+    color: white;
+}
+.mainsearch{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.location{
+    padding: 5px 10px;
+    border: 1px solid #131921;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.search{
+    position: relative;
+    height: 5vh;
+    width: 100vh;
+}
+.search input{
+    width: 100%;
+    height: 100%;
+    padding: 0 60px 0 15px;
+    border: none;
+}
+.search input:focus{
+    outline: none;
+}
+.search button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+}
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    flex-direction: row;
+    height: 5vh;
+    padding: 0 10px;
+}
+.language{
+    color: #fff;
+    border: 1px solid #131921;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    padding: 0 10px;
+    align-items: center;
+    gap: 1vh;
+    transition: all 0.3s ease;
+}
+.H-hover:hover{
+    border: 1px solid #fff;
+}
+.side-cart{
+    height: 5vh;
+    width: 7vh;
+    border: 1px solid #131921;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+i{
+    color: #fff;
+    width: 100%;
+    transform: scaleX(1.1);
+}
+.icon{
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/9187/9187604.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+.icon:hover .drop-logIn{
+    display: flex;
+}
+.drop-logIn{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    width: 10vh;
+    right: -50%;
+    transition: all 0.3s ease-in-out;
+}
+.logIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    background-color: #131921;
+    border-bottom: 1px solid #fff;
+    transition: all 0.3s ease-in-out;
+}
+.logIn{
+    text-decoration: none;
+    color: #fff;
+}
+.logIn:hover{
+    background-color: #2f3f54;
+}
+nav{
+    height: 5vh;
+    background-color: #232F3E;
+    display: flex;
+    align-items: center;
+    gap: 4vh;
+    padding-left: 3vh;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+
+nav a:hover{
+    border: 1px solid white;
+}
+
+.product{
+    position: relative;
+}
+
+.drop-down{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #232F3E;
+    min-width: 180px;
+    display: none;
+    z-index: 10;
+}
+
+.drop-down a{
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+.product:hover .drop-down{
+    display: block;
+}
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="upperHeader">
+        <h1>SHOPPING</h1>
+
+        <div class="mainsearch">
+            <div class="location H-hover">
+                <i class="fa-solid fa-location-dot"></i>
+                Itahari
+            </div>
+
+            <div class="search">
+                <input type="search" placeholder="Search products...">
+                <button>GO</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="language H-hover"><i class="fa-solid fa-globe"></i><p>English</p></div>
+            <div class="side-cart H-hover"><i class="fa-solid fa-cart-shopping"></i></i></div>
+            <div class="side-cart H-hover"><i class="fa-solid fa-envelope"></i></div>
+        </div>
+        <div class="icon">
+            <div class="drop-logIn">
+                <% if(user) { %>
+                     <a href="/logout" class="logIn">LogOut</a>
+                <%} else {%>
+            <a href="/signup" class="logIn">Sign In</a>
+            <a href="/login" class="logIn">Log In</a>
+                <% } %>
+        </div>
+        </div>
+    
+    </div>
+
+
+    <nav>
+        <a href="/">Home</a>
+
+        <div class="product">
+            <a href="#">Product</a>
+            <div class="drop-down">
+                <a href="#" id="Grocery">Grocery</a>
+                <a href="#">Tech</a>
+                <a href="#">Fashion</a>
+                <a href="#">Sport Gear</a>
+            </div>
+        </div>
+
+        <a href="#">Voucher</a>
+        <a href="#">Customer Support</a>
+        <% if(!user){%>
+        <% }else{ %>
+        <a href="/addProduct" target="display">Add Product</a>
+        <% } %>
+    </nav>
+</header>
+</body>
+</html>

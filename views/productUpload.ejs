@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 0;
+    }
+
+    .productConatiner {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      top: 15vh;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea, button {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    .Addbtn {
+      background-color: #1395ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .Addbtn:hover {
+      background-color: #0d7adf;
+    }
+  </style>
+</head>
+<body>
+
+  <%- include('navBar') %>
+
+  <div class="productConatiner">
+    <h2>Add Product</h2>
+    <form action="/product/create" method="POST" enctype="multipart/form-data">
+      <input type="text" name="productName" placeholder="Product Name" required>
+      <input type="number" name="price" placeholder="Price" required>
+      <input type="number" name="quantity" placeholder="Quantity" required>
+      <textarea name="productDescription" rows="3" placeholder="Description" required></textarea>
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Electronics">Electronics</option>
+      </select>
+      <select name="status" required>
+        <option value="available">Available</option>
+        <option value="outOfStock">Out of Stock</option>
+      </select>
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit" class="Addbtn">Add Product</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+
+    .header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  top: -7vh;
+}
+
+    
+    .container {
+      position: relative;
+      top : 10vh;
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .details-section {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .price {
+      color: #1395ff;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .status {
+      font-weight: bold;
+      color: green;
+    }
+
+    .desc {
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buy {
+      background-color: #1395ff;
+    }
+
+    .cart {
+      background-color: green;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+<div class="header">
+  <%- include('navBar') %>
+</div>
+
+  <div class="container">
+
+    <!-- Image -->
+    <div class="image-section">
+      <img src="/uploads/<%= product.productImg %>" alt="Product Image">
+    </div>
+
+    <!-- Details -->
+    <div class="details-section">
+      <div class="title"><%= product.productName %></div>
+      <div class="price">Rs. <%= product.price %></div>
+      <div class="status">Status: <%= product.status %></div>
+      <div>Category: <%= product.category %></div>
+      <div>Quantity: <%= product.quantity %></div>
+      <div>Supplier : <%= product.supplierId.companyName %></div>
+
+      <div class="desc">
+        <%= product.productDescription %>
+      </div>
+
+      <div class="buttons">
+        <button class="btn buy">Buy Now</button>
+        <button class="btn cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
