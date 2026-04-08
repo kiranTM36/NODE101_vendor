@@ -37,6 +37,10 @@ app.get('/signup',(req, res)=> {
     res.render('signup')
 })
 
+app.get('/forgetPass', (req, res)=> {
+    res.render('forgetPassword')
+})
+
 app.get('/login',(req, res)=> {
     res.render('login')
 })
@@ -56,6 +60,10 @@ app.get('/logout', (req, res) => {
   res.clearCookie('jwtToken');  // removes the cookie
   res.redirect('/login');       // or send response
 });
+
+app.get('/verifyOTP',(req, res)=> {
+    res.render('verifyOTP')
+})
 
 app.use('/vendor', vendorRoute)
 app.use('/supplier',supplierRoute)

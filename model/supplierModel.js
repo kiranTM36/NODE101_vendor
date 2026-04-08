@@ -16,7 +16,8 @@ const supplierSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    otp: Number
 }, { timestamps: true })
 
 // Hash password before saving
